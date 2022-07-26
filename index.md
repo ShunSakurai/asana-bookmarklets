@@ -1,12 +1,17 @@
-# English
+# Asana bookmarklets
 
-## 1. Operations to one task
+## English
+
+Drag and drop links below to your browser bookmark bar.
+For details, please see [this forum topic](https://forum.asana.com/t/introduction-to-asana-bookmarklets/184620).
+
+### 1. Operations to one task
 
 1. <a href="javascript: (function() {const expandLink = document.querySelector('.TaskStoryFeed-expandLink');if (expandLink && expandLink.textContent.match(/\d/)) expandLink.click();  document.querySelectorAll('.TruncatedRichText-expand').forEach(link => link.click());  document.querySelectorAll('.TaskStoryFeed-expandMiniStoriesLink').forEach(link => link.click());document.querySelectorAll('.BacklinkMiniStory').forEach(line => {line.parentNode.style.display = 'none';});})();">💬 Clean up story</a>
 2. <a href="javascript:(function() { const expandLink = document.querySelector('.TaskStoryFeed-expandLink'); if (expandLink && expandLink.textContent.match(/\d/)) expandLink.click(); document.querySelectorAll('.TruncatedRichText-expand').forEach(link => link.click()); document.querySelectorAll('.TaskStoryFeed-expandMiniStoriesLink').forEach(link => link.click()); })();">↕️ Expand comments</a>
 3. <a href="javascript:(function() { document.querySelectorAll('.BacklinkMiniStory').forEach(line => {line.parentNode.style.display = 'none';}); })();">↔ Hide connected work links</a>
 
-## 2. Operations to a list of tasks
+### 2. Operations to a list of tasks
 > Note: If there are many tasks and some are not displayed in the window, **scroll Asana tab to the bottom** to load all tasks **before running these bookmarklets**.
 
 1. <a href="javascript:(function() { const firstButtonIcon = document.querySelector('.TaskGroupHeader-toggleButton .Icon'); if (!firstButtonIcon) return; const firstTriangleClassName = firstButtonIcon.classList.contains('DownTriangleIcon')? 'DownTriangleIcon': 'RightTriangleIcon'; document.querySelectorAll(`.TaskGroupHeader-toggleButton .${firstTriangleClassName}`).forEach(buttonIcon => buttonIcon.parentNode.click()); })();">▶︎ Toggle sections</a>
@@ -14,15 +19,18 @@
 3. <a href="javascript:(function() { const taskPlaceholderHTMLCollection = document.getElementsByClassName('SpreadsheetTaskRowScrollPlaceholder'); if (!taskPlaceholderHTMLCollection.length) { document.querySelectorAll('.TaskRowCompletionStatus-taskCompletionIcon--incomplete').forEach(incompleteIcon => incompleteIcon.parentNode.click()); } else { const taskGroup = document.querySelector('.TaskGroup'); const buttonAtTheBottom = document.querySelector('.SpreadsheetPotGridContents-addSectionButton'); setTimeout(function () {buttonAtTheBottom.scrollIntoView();}, 20); setTimeout(function () { taskGroup.style.display = 'none'; const progressIndicator = document.createElement('span'); progressIndicator.setAttribute('id', 'progressIndicator'); progressIndicator.textContent = 'Processing'; buttonAtTheBottom.parentNode.insertBefore(progressIndicator, buttonAtTheBottom); }, 40); setTimeout(function () {buttonAtTheBottom.scrollIntoView();}, 60); let monitorTaskStructure = setInterval(() => { if (taskPlaceholderHTMLCollection.length == 0) { clearInterval(monitorTaskStructure); const progressIndicator = document.querySelector('#progressIndicator'); const allTasks = Array.from(document.querySelectorAll('.TaskRowCompletionStatus-taskCompletionIcon--incomplete')); const numProcesses = Math.floor(allTasks.length / 50) + 1; let counter = 0; let loopTasks = setInterval(() => { progressIndicator.textContent = `Processing (${counter}/${numProcesses})`; for (let i = 50 * counter; i < Math.min(allTasks.length, 50 * (counter + 1)); i++) { allTasks[i].parentNode.click(); if (i == allTasks.length - 1) { clearInterval(loopTasks); progressIndicator.remove(); taskGroup.style.display = ''; } } counter += 1; }, 500); } }, 100); } })();">✅ Complete all tasks</a>
 4. <a href="javascript:(function() { const taskPlaceholderHTMLCollection = document.getElementsByClassName('SpreadsheetTaskRowScrollPlaceholder'); if (!taskPlaceholderHTMLCollection.length) { document.querySelectorAll('.TaskRowCompletionStatus-taskCompletionIcon--complete').forEach(incompleteIcon => incompleteIcon.parentNode.click()); } else { const taskGroup = document.querySelector('.TaskGroup'); const buttonAtTheBottom = document.querySelector('.SpreadsheetPotGridContents-addSectionButton'); setTimeout(function () {buttonAtTheBottom.scrollIntoView();}, 20); setTimeout(function () { taskGroup.style.display = 'none'; const progressIndicator = document.createElement('span'); progressIndicator.setAttribute('id', 'progressIndicator'); progressIndicator.textContent = 'Processing'; buttonAtTheBottom.parentNode.insertBefore(progressIndicator, buttonAtTheBottom); }, 40); setTimeout(function () {buttonAtTheBottom.scrollIntoView();}, 60); let monitorTaskStructure = setInterval(() => { if (taskPlaceholderHTMLCollection.length == 0) { clearInterval(monitorTaskStructure); const progressIndicator = document.querySelector('#progressIndicator'); const allTasks = Array.from(document.querySelectorAll('.TaskRowCompletionStatus-taskCompletionIcon--complete')); const numProcesses = Math.floor(allTasks.length / 50) + 1; let counter = 0; let loopTasks = setInterval(() => { progressIndicator.textContent = `Processing(${counter}/${numProcesses})`; for (let i = 50 * counter; i < Math.min(allTasks.length, 50 * (counter + 1)); i++) { allTasks[i].parentNode.click(); if (i == allTasks.length - 1) { clearInterval(loopTasks); progressIndicator.remove(); taskGroup.style.display = ''; } } counter += 1; }, 500); } }, 100); } })();">☑️ Mark all tasks incomplete</a>
 
-# 日本語
+## 日本語
 
-## 1. 一つのタスクに対する操作
+以下のリンクをブックマークバーにドラッグ＆ドロップして追加してください。
+詳細については[こちらのフォーラム投稿](https://forum.asana.com/t/asana/184069)をご覧ください。
+
+### 1. 一つのタスクに対する操作
 
 1. <a href="javascript: (function() {const expandLink = document.querySelector('.TaskStoryFeed-expandLink');if (expandLink && expandLink.textContent.match(/\d/)) expandLink.click();  document.querySelectorAll('.TruncatedRichText-expand').forEach(link => link.click());  document.querySelectorAll('.TaskStoryFeed-expandMiniStoriesLink').forEach(link => link.click());document.querySelectorAll('.BacklinkMiniStory').forEach(line => {line.parentNode.style.display = 'none';});})();">💬 ストーリーのスッキリ表示</a>
 2. <a href="javascript:(function() { const expandLink = document.querySelector('.TaskStoryFeed-expandLink'); if (expandLink && expandLink.textContent.match(/\d/)) expandLink.click(); document.querySelectorAll('.TruncatedRichText-expand').forEach(link => link.click()); document.querySelectorAll('.TaskStoryFeed-expandMiniStoriesLink').forEach(link => link.click()); })();">↕️ コメントの展開</a>
 3. <a href="javascript:(function() { document.querySelectorAll('.BacklinkMiniStory').forEach(line => {line.parentNode.style.display = 'none';}); })();">↔ 作業間リンクの非表示</a>
 
-## 2. プロジェクトなどタスクリストに対する操作
+### 2. プロジェクトなどタスクリストに対する操作
 > 注意: タスクが多数あり一画面に表示しきれていない場合は、以下の**ブックマークレットを実行する前に、Asana画面を一番下までスクロール**し、すべてのタスクを読み込んでください。
 
 1. <a href="javascript:(function() { const firstButtonIcon = document.querySelector('.TaskGroupHeader-toggleButton .Icon'); if (!firstButtonIcon) return; const firstTriangleClassName = firstButtonIcon.classList.contains('DownTriangleIcon')? 'DownTriangleIcon': 'RightTriangleIcon'; document.querySelectorAll(`.TaskGroupHeader-toggleButton .${firstTriangleClassName}`).forEach(buttonIcon => buttonIcon.parentNode.click()); })();">▶︎ セクションの表示切り替え</a>

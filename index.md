@@ -1,5 +1,9 @@
 # Asana bookmarklets
 
+## Table of Contents
+- [English](#English)
+- [日本語](#日本語)
+
 ## English
 
 Drag and drop links below to your browser bookmark bar.
